@@ -1,0 +1,3000 @@
+/*
+ * Author       : kaaviyasri.ps.2024.cse_ra970
+ * Generated on : 10-Nov-2026 13:55:13
+ * Version      : 1.0
+ */
+ application "petscop"
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "Asia/Kolkata"
+ 	time format = "24-hr"
+
+ 	forms
+	{
+		form Cage_Enclosure_Master
+		{
+			displayname = "Cage/Enclosure Master"
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Cage_ID
+			(
+    			type = autonumber
+				displayname = "Cage ID"
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Cage_Type
+			(
+				type = picklist
+				displayname = "Cage Type"
+				maxchar = 100
+				values = {"Kennel","Cage","Isolation","Quarantine","Holding Pen"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Block_Location
+			(
+    			type = text
+				displayname = "Block/Location"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Capacity
+			(
+				type = number
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Current_Occupancy
+			(
+				type = number
+				displayname = "Current Occupancy"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Cage_Status
+			(
+				type = picklist
+				displayname = "Cage Status"
+				maxchar = 100
+				values = {"Available","Full","Under Cleaning","Out of Service"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Foster_Master
+		{
+			displayname = "Foster Master"
+			success message = "Foster Master Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Foster_ID
+			(
+    			type = autonumber
+				displayname = "Foster ID"
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Foster_Name
+			(
+    			type = name
+				displayname = "Foster Name"
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Email
+			(
+    			type = email
+				maxchar = 80
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Address
+			(
+    			type = address
+     			capture_coordinates = true
+     			adjust_using_map = false
+     			address_line_1
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_2
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+     			) 
+     			district_city
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+     			) 
+     			postal_Code
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+	     			 visibility = false
+     			) 
+     			longitude
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Species_Accepted
+			(
+				type = list	
+				displayname = "Species Accepted"
+				values = {"Dog","Cat","Bird","Cow","Monkey"}
+				height = 60px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Max_Animals
+			(
+				type = number
+				displayname = "Max Animals"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Experience_Level
+			(
+				type = picklist
+				displayname = "Experience Level"
+				maxchar = 100
+				values = {"Beginner","Experienced","Medical-trained"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Availability
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Available","Currently Fostering","On Break"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Foster_Placement
+		{
+			displayname = "Foster Placement"
+			success message = "Foster Placement Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Animal
+			(
+				type = picklist	
+				values  = Rescue_Report.ID
+    			displayformat = [Animal_ID + " - " + Animal_Name + " - " + Species]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Foster
+			(
+				type = picklist	
+				values  = Foster_Master.ID
+    			displayformat = [Foster_ID + " - " + Foster_Name.first_name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Placement_Start_Date
+			(
+    			type = date
+				displayname = "Placement Start Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Expected_End_Date
+			(
+    			type = date
+				displayname = "Expected End Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Reason_for_Fostering
+			(
+				type = picklist
+				displayname = "Reason for Fostering"
+				maxchar = 100
+				values = {"Recovery","Too Young","Overcrowding","Behavioural Rehab"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Care_Instructions
+			(
+    			type = textarea
+				displayname = "Care Instructions"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Check_in_Date
+			(
+    			type = date
+				displayname = "Check-in Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Animal_Condition_at_Check_in
+			(
+				type = picklist
+				displayname = "Animal Condition at Check-in"
+				maxchar = 100
+				values = {"Improving","Stable","Concern"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Placement_Status
+			(
+				type = picklist
+				displayname = "Placement Status"
+				maxchar = 100
+				values = {"Active","Completed","Returned Early"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Holding_Cage_Assignment
+		{
+			displayname = "Holding & Cage Assignment"
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Animal
+			(
+				type = picklist	
+				values  = Rescue_Report.ID
+    			displayformat = [Animal_ID + " - " + Animal_Name + " - " + Species]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Cage
+			(
+				type = picklist	
+				values  = Cage_Enclosure_Master.ID
+    			displayformat = [Cage_ID + " - " + Cage_Type]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Assigned_Date
+			(
+    			type = date
+				displayname = "Assigned Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Holding_Reason
+			(
+				type = picklist
+				displayname = "Holding Reason"
+				maxchar = 100
+				values = {"New Intake","Quarantine","Medical Observation","Awaiting Foster"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Expected_Move_Date
+			(
+    			type = date
+				displayname = "Expected Move Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Moved_Out_Date
+			(
+    			type = date
+				displayname = "Moved Out Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Injury_Record
+		{
+			displayname = "Injury Record"
+			success message = "Injury Record Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Animal
+			(
+				type = picklist	
+				values  = Rescue_Report.ID
+    			displayformat = [Animal_ID + " - " + Animal_Name + " - " + Species]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Injury_Date_Noted
+			(
+    			type = date
+				displayname = "Injury Date Noted"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Injury_Type
+			(
+				type = picklist
+				displayname = "Injury Type"
+				maxchar = 100
+				values = {"Fracture","Open Wound","Burn","Infection","Malnutrition","Parasites","Neurological"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Body_Part_Affected
+			(
+				type = picklist
+				displayname = "Body Part Affected"
+				maxchar = 100
+				values = {"Head","Front leg","Hind leg","Torso","Tail","Eyes","Multiple"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Severity
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Mild","Moderate","Severe"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Description
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Injury_Photo
+			(
+    			type = image
+				displayname = "Injury Photo"
+				source  = file
+				aspect ratio = original
+				camera = primary
+				show gallery = true
+				switch camera = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Assessed_by
+			(
+    			type = text
+				displayname = "Assessed by"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Recovery_Status
+			(
+				type = picklist
+				displayname = "Recovery Status"
+				maxchar = 100
+				values = {"Untreated","Under Treatment","Recovering","Healed"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Rescue_Report
+		{
+			displayname = "Rescue Report"
+			success message = "Rescue Report Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Animal_ID
+			(
+    			type = autonumber
+				displayname = "Animal ID"
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Animal_Name
+			(
+    			type = text
+				displayname = "Animal Name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Species
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Dog","Cat","Bird","Cow","Monkey"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Breed_Description
+			(
+    			type = text
+				displayname = "Breed/Description"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Approx_Age
+			(
+				type = picklist
+				displayname = "Approx. Age"
+				maxchar = 100
+				values = {"Newbord","Juvenile","Adult","Senior"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Sex
+			(
+				type = radiobuttons
+				maxchar = 100
+				values = {"Male","Female","Unknown"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Photo
+			(
+    			type = image
+				source  = file
+				aspect ratio = original
+				camera = primary
+				show gallery = true
+				switch camera = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Rescue_Date_Time
+			(
+    			type = datetime
+				displayname = "Rescue Date & Time"
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Rescue_Location
+			(
+    			type = text
+				displayname = "Rescue Location"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Reported_By
+			(
+    			type = text
+				displayname = "Reported By"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Reporter_Contact
+			(
+    			type = phonenumber
+				displayname = "Reporter Contact"
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Rescued_By
+			(
+    			type = text
+				displayname = "Rescued By"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Rescue_Type
+			(
+				type = picklist
+				displayname = "Rescue Type"
+				maxchar = 100
+				values = {"Road Accident","Abandoned","Abuse","Stray","Natural Disaster","Surrender"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Condition_on_Arrival
+			(
+				type = picklist
+				displayname = "Condition on Arrival"
+				maxchar = 100
+				values = {"Critical","Serious","Stable","Healthy"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Microchipped
+			(
+				type = radiobuttons
+				maxchar = 100
+				values = {"Yes","No"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Current_Status
+			(
+				type = picklist
+				displayname = "Current Status"
+				maxchar = 100
+				values = {"In Holding","In Medical Care","In Rehab","With Foster","Ready for Release","Released","Deceased"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Cage_Enclosure_Master
+			(
+				type = picklist	
+				displayname = "Cage/Enclosure Master"
+				values  = Cage_Enclosure_Master.ID
+    			displayformat = [Cage_ID + " - " + Cage_Type]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Treatment_Plan_Log
+		{
+			displayname = "Treatment Plan/Log"
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Animal
+			(
+				type = picklist	
+				values  = Rescue_Report.ID
+    			displayformat = [Animal_ID + " - " + Animal_Name + " - " + Species]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Injury_Record
+			(
+				type = picklist	
+				displayname = "Injury Record"
+				values  = Injury_Record.ID
+    			displayformat = [Injury_Type]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Treatment_Date
+			(
+    			type = date
+				displayname = "Treatment Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Treatment_Type
+			(
+				type = picklist
+				displayname = "Treatment Type"
+				maxchar = 100
+				values = {"Medication","Surgery","Dressing","Vaccination","Deworming","Physiotherapy","Checkup"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Medication_Procedure
+			(
+    			type = text
+				displayname = "Medication/Procedure"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Dosage
+			(
+    			type = text
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Administered_by
+			(
+    			type = text
+				displayname = "Administered by"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Vet_Notes
+			(
+    			type = textarea
+				displayname = "Vet Notes"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Weight
+			(
+				type = decimal
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Next_Treatment_Due
+			(
+    			type = date
+				displayname = "Next Treatment Due"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Progress
+			(
+				type = picklist
+				maxchar = 100
+				values = {"Improving","Stable","Declining"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+	}
+	reports
+	{
+		default list Cage_Enclosure_Master_Report
+		{
+			displayName = "Cage/Enclosure Master Report"
+			show all rows from Cage_Enclosure_Master    
+			(
+				Cage_ID as "Cage ID"
+				Cage_Type as "Cage Type"
+				Block_Location as "Block/Location"
+				Capacity
+				Current_Occupancy as "Current Occupancy"
+				Cage_Status as "Cage Status"
+			)
+		}
+		default list All_Rescue_Reports
+		{
+			displayName = "All Rescue Reports"
+			show all rows from Rescue_Report    
+			(
+				Animal_ID as "Animal ID"
+				Animal_Name as "Animal Name"
+				Species
+				Breed_Description as "Breed/Description"
+				Approx_Age as "Approx. Age"
+				Sex
+				Photo
+				Rescue_Date_Time as "Rescue Date & Time"
+				Rescue_Location as "Rescue Location"
+				Reported_By as "Reported By"
+				Reporter_Contact as "Reporter Contact"
+				(
+					displayformat = plainnumber 
+				)
+				Rescued_By as "Rescued By"
+				Rescue_Type as "Rescue Type"
+				Condition_on_Arrival as "Condition on Arrival"
+				Microchipped
+				Current_Status as "Current Status"
+				Cage_Enclosure_Master as "Cage/Enclosure Master"
+			)
+		}
+		default list All_Injury_Records
+		{
+			displayName = "All Injury Records"
+			show all rows from Injury_Record    
+			(
+				Animal
+				Injury_Date_Noted as "Injury Date Noted"
+				Injury_Type as "Injury Type"
+				Body_Part_Affected as "Body Part Affected"
+				Severity
+				Description
+				Injury_Photo as "Injury Photo"
+				Assessed_by as "Assessed by"
+				Recovery_Status as "Recovery Status"
+			)
+		}
+		default list Treatment_Plan_Log_Report
+		{
+			displayName = "Treatment Plan/Log Report"
+			show all rows from Treatment_Plan_Log    
+			(
+				Animal
+				Injury_Record as "Injury Record"
+				Treatment_Date as "Treatment Date"
+				Treatment_Type as "Treatment Type"
+				Medication_Procedure as "Medication/Procedure"
+				Dosage
+				Administered_by as "Administered by"
+				Vet_Notes as "Vet Notes"
+				Weight
+				Next_Treatment_Due as "Next Treatment Due"
+				Progress
+			)
+		}
+		default list All_Foster_Masters
+		{
+			displayName = "All Foster Masters"
+			show all rows from Foster_Master    
+			(
+				Foster_ID as "Foster ID"
+				Foster_Name  as "Foster Name"
+				Email
+				Address 
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Species_Accepted as "Species Accepted"
+				Max_Animals as "Max Animals"
+				Experience_Level as "Experience Level"
+				Availability
+			)
+		}
+		default list All_Foster_Placements
+		{
+			displayName = "All Foster Placements"
+			show all rows from Foster_Placement    
+			(
+				Animal
+				Foster
+				Placement_Start_Date as "Placement Start Date"
+				Expected_End_Date as "Expected End Date"
+				Reason_for_Fostering as "Reason for Fostering"
+				Care_Instructions as "Care Instructions"
+				Check_in_Date as "Check-in Date"
+				Animal_Condition_at_Check_in as "Animal Condition at Check-in"
+				Placement_Status as "Placement Status"
+			)
+		}
+		default list Holding_Cage_Assignment_Report
+		{
+			displayName = "Holding & Cage Assignment Report"
+			show all rows from Holding_Cage_Assignment    
+			(
+				Animal
+				Cage
+				Assigned_Date as "Assigned Date"
+				Holding_Reason as "Holding Reason"
+				Expected_Move_Date as "Expected Move Date"
+				Moved_Out_Date as "Moved Out Date"
+			)
+		}
+		list Foster_Placement_Report
+		{
+			displayName = "Foster Placements List"
+			show all rows from Foster_Placement    
+			(
+				Placement_Status as "Placement Status"
+				Foster
+				Animal
+				Placement_Start_Date as "Placement Start Date"
+				Expected_End_Date as "Expected End Date"
+				Reason_for_Fostering as "Reason for Fostering"
+				Care_Instructions as "Care Instructions"
+				Animal_Condition_at_Check_in as "Animal Condition at Check-in"
+				Check_in_Date as "Check-in Date"
+			)
+		}
+		kanban Holding_Analysis
+		{
+			displayName = "Holding Analysis"
+			show all rows from Holding_Cage_Assignment    
+			(
+				Animal
+				Cage
+				Assigned_Date as "Assigned Date"
+				Holding_Reason as "Holding Reason"
+				Expected_Move_Date as "Expected Move Date"
+				Moved_Out_Date as "Moved Out Date"
+			)
+			options
+			(
+	 			display field = Cage
+				sort order  = ascending
+	 		)
+		}
+	}
+	pages
+	{
+		page Foster_Placement_Dashboard
+		{
+			displayname = "Foster Placement Dashboard"
+			Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\n\t\t\n>\n\t<layout>\n\t<row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='welcome_panel.welcome-links.elevated.comfortable'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '0px'\n\tpaddingLeft = '0px'\n\tpaddingRight = '0px'\n\tpaddingBottom = '3px'\n\tbgColor = '#D9D9D9'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'top'\n    \tcornerRadius = '9px'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '0px'\n\tbgColor = '#FFFFFF'\n\n    borderColor = '#F0F0F0'\n    borderWidth = '1px'\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'top'\n    \tcornerRadius = '8px'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '24px'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#575757'\n\tsize = '12px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'WELCOME'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='8px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#1C1C1C'\n\tsize = '28px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Foster Placement Dashboard'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='8px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#575757'\n\tsize = '13px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Track and manage foster placements for animals'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\tpaddingLeft = '24px'\n\tpaddingRight = '24px'\n\tpaddingBottom = '24px'\n\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '14px'\n\tbgColor = '#F7F7F7'\n\n    action = 'OpenReport'\n\t\tcomponentLinkName = 'Foster_Placement_Report'\n\t\ttarget = 'same-window'\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n    \tcornerRadius = '8px'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<image  \n\t\n\tcolor = 'theme'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\twidth = '20px'\n\theight = '20px'\n\ttype = 'icon'\n\tvalue = 'ui-2-fat-add'\n\tsize = '12px'\n\tcornerRadius = '0px'\n\ticonType = 'solid'\n/>\n</pc><pc \n\t\tpaddingLeft = '10px'\n\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#1C1C1C'\n\tsize = '13px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'View All Placements'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='2px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#575757'\n\tsize = '11px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'See all foster placement records'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='33%'\n   \t>\n\t<panel elementName='active_placements_stat.stat.elevated.comfortable'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '0px'\n\tpaddingLeft = '0px'\n\tpaddingRight = '0px'\n\tpaddingBottom = '3px'\n\tbgColor = '#D9D9D9'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'top'\n    \tcornerRadius = '9px'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '0px'\n\tbgColor = '#FFFFFF'\n\n    borderColor = '#F0F0F0'\n    borderWidth = '1px'\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'top'\n    \tcornerRadius = '8px'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '24px'\n\tpaddingLeft = '24px'\n\tpaddingRight = '24px'\n\tpaddingBottom = '24px'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#575757'\n\tsize = '13px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Active Placements'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='8px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#1C1C1C'\n\tsize = '30px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t\tcriteria = 'Placement_Status == &quot;Active&quot;'\n\t  value = 'thisapp.Foster_Placement.Placement_Status.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='8px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#575757'\n\tsize = '12px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Currently active foster placements'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='33%'\n   \t>\n\t<panel elementName='completed_placements_sta.stat.elevated.comfortable'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '0px'\n\tpaddingLeft = '0px'\n\tpaddingRight = '0px'\n\tpaddingBottom = '3px'\n\tbgColor = '#D9D9D9'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'top'\n    \tcornerRadius = '9px'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '0px'\n\tbgColor = '#FFFFFF'\n\n    borderColor = '#F0F0F0'\n    borderWidth = '1px'\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'top'\n    \tcornerRadius = '8px'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '24px'\n\tpaddingLeft = '24px'\n\tpaddingRight = '24px'\n\tpaddingBottom = '24px'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#575757'\n\tsize = '13px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Completed Placements'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='8px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#1C1C1C'\n\tsize = '30px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t\tcriteria = 'Placement_Status == &quot;Completed&quot;'\n\t  value = 'thisapp.Foster_Placement.Placement_Status.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='8px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#575757'\n\tsize = '12px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Successfully completed placements'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='34%'\n   \t>\n\t<panel elementName='returned_early_stat.stat.elevated.comfortable'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '0px'\n\tpaddingLeft = '0px'\n\tpaddingRight = '0px'\n\tpaddingBottom = '3px'\n\tbgColor = '#D9D9D9'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'top'\n    \tcornerRadius = '9px'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '0px'\n\tbgColor = '#FFFFFF'\n\n    borderColor = '#F0F0F0'\n    borderWidth = '1px'\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'top'\n    \tcornerRadius = '8px'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '24px'\n\tpaddingLeft = '24px'\n\tpaddingRight = '24px'\n\tpaddingBottom = '24px'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#575757'\n\tsize = '13px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Returned Early'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='8px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#1C1C1C'\n\tsize = '30px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t\tcriteria = 'Placement_Status == &quot;Returned Early&quot;'\n\t  value = 'thisapp.Foster_Placement.Placement_Status.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='8px'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<text \n\n\tcolor = '#575757'\n\tsize = '12px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Placements returned before expected end date'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row>\n</layout>\n</zml>"
+		}
+	}
+
+
+		 functions
+		 {
+			 Deluge
+			 {
+				 void closeCageAssignments(int animalId)
+                 {
+                 	openList = Holding_Cage_Assignment[Animal == animalId && Moved_Out_Date == null];
+                 	for each  a in openList
+                 	{
+                 		cageId = a.Cage;
+                 		a.Moved_Out_Date=zoho.currentdate;
+                 		thisapp.updateCageOccupancy(cageId);
+                 	}
+                 }
+				 void refreshFosterAvailability(int fosterId)
+                 {
+                 	fosterRec = Foster_Master[ID == fosterId];
+                 	activeCount = Foster_Placement[Foster == fosterId && Placement_Status == "Active"].count();
+                 	if(fosterRec.Availability != "On Break")
+                 	{
+                 		if(activeCount >= fosterRec.Max_Animals)
+                 		{
+                 			fosterRec.Availability="Currently Fostering";
+                 		}
+                 		else
+                 		{
+                 			fosterRec.Availability="Available";
+                 		}
+                 	}
+                 }
+				 void updateCageOccupancy(int cageId)
+                 {
+                 	cageRec = Cage_Enclosure_Master[ID == cageId];
+                 	occ = Holding_Cage_Assignment[Cage == cageId && Moved_Out_Date == null].count();
+                 	cageRec.Current_Occupancy=occ;
+                 	if(cageRec.Cage_Status != "Out of Service" && cageRec.Cage_Status != "Under Cleaning")
+                 	{
+                 		if(occ >= cageRec.Capacity)
+                 		{
+                 			cageRec.Cage_Status="Full";
+                 		}
+                 		else
+                 		{
+                 			cageRec.Cage_Status="Available";
+                 		}
+                 	}
+                 }
+			 }
+		 }
+
+
+		workflow
+		{
+		form
+		{
+			W1 as "W1"
+			{
+				type =  form
+				form = Rescue_Report
+
+				record event = on add
+
+				on load
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Current_Status = "In Holding";
+						)
+					}
+					actions 
+					{
+						custom deluge script
+						(
+											input.Rescue_Date_Time = zoho.currenttime;
+						)
+					}
+				}
+
+			}
+			W2 as "W2"
+			{
+				type =  form
+				form = Rescue_Report
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Condition_on_Arrival == "Critical" || input.Condition_on_Arrival == "Serious")
+										{
+											input.Current_Status = "In Medical Care";
+										}
+										if(input.Condition_on_Arrival == "Critical")
+										{
+											sendmail
+											[
+												from :zoho.adminuserid
+												to :"vet@yourshelter.org"
+												subject :"CRITICAL rescue admitted: " + input.Animal_ID
+												message :"A critical-condition " + input.Species + " was rescued at " + input.Rescue_Location + ". Please attend immediately."
+											]
+										}
+						)
+					}
+				}
+
+			}
+			W3 as "W3"
+			{
+				type =  form
+				form = Rescue_Report
+
+				record event = on edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Current_Status == "Released" || input.Current_Status == "Deceased")
+										{
+											thisapp.closeCageAssignments(input.ID);
+											Current_Cage = null;
+										}
+						)
+					}
+				}
+
+			}
+			W4a as "W4a"
+			{
+				type =  form
+				form = Injury_Record
+
+				record event = on add
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Injury_Date_Noted > zoho.currentdate)
+										{
+											alert "Injury date cannot be in the future.";
+											cancel submit;
+										}
+						)
+					}
+				}
+
+			}
+			W4b as "W4b"
+			{
+				type =  form
+				form = Injury_Record
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Severity == "Severe")
+										{
+											animalRec = Rescue_Report[ID == input.Animal];
+											if(animalRec.Current_Status != "With Foster")
+											{
+												animalRec.Current_Status="In Medical Care";
+											}
+											sendmail
+											[
+												from :zoho.adminuserid
+												to :"vet@yourshelter.org"
+												subject :"Severe injury logged: " + animalRec.Animal_ID
+												message :"Type: " + input.Injury_Type + ", Body part: " + input.Body_Part_Affected + ". Please review."
+											]
+										}
+						)
+					}
+				}
+
+			}
+			W5a as "W5a"
+			{
+				type =  form
+				form = Treatment_Plan_Log
+
+				record event = on add
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Next_Treatment_Due != null && input.Next_Treatment_Due < input.Treatment_Date)
+										{
+											alert "Next treatment due cannot be before the treatment date.";
+											cancel submit;
+										}
+						)
+					}
+				}
+
+			}
+			W5b as "W5b"
+			{
+				type =  form
+				form = Treatment_Plan_Log
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											animalRec = Rescue_Report[ID == input.Animal];
+										// Escalate if the animal is getting worse
+										if(input.Progress == "Declining")
+										{
+											if(animalRec.Current_Status != "With Foster")
+											{
+												animalRec.Current_Status="In Medical Care";
+											}
+											sendmail
+											[
+												from :zoho.adminuserid
+												to :"vet@yourshelter.org"
+												subject :"Animal declining: " + animalRec.Animal_ID
+												message :"Latest treatment log marks progress as Declining. Please review the treatment plan."
+											]
+										}
+						)
+					}
+				}
+
+			}
+			W6 as "W6"
+			{
+				type =  form
+				form = Holding_Cage_Assignment
+
+				record event = on add
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											cageRec = Cage_Enclosure_Master[ID == input.Cage];
+										if(cageRec.Cage_Status == "Out of Service" || cageRec.Cage_Status == "Under Cleaning")
+										{
+											alert "This cage is " + cageRec.Cage_Status + ". Choose another cage.";
+											cancel submit;
+										}
+										if(cageRec.Current_Occupancy >= cageRec.Capacity)
+										{
+											alert "Cage " + cageRec.Cage_ID + " is full. Choose another cage.";
+											cancel submit;
+										}
+						)
+					}
+				}
+
+			}
+			W7 as "W7"
+			{
+				type =  form
+				form = Holding_Cage_Assignment
+
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Close any other open assignment for this animal
+										otherOpen = Holding_Cage_Assignment[Animal == input.Animal && Moved_Out_Date == null && ID != input.ID];
+										for each  a in otherOpen
+										{
+											oldCage = a.Cage;
+											a.Moved_Out_Date=zoho.currentdate;
+											thisapp.updateCageOccupancy(oldCage);
+										}
+										// Recount the cage for this assignment
+										thisapp.updateCageOccupancy(input.Cage);
+										// Keep the animal record in sync
+										animalRec = Rescue_Report[ID == input.Animal];
+										if(input.Moved_Out_Date == null)
+										{
+											if(animalRec.Current_Status == "With Foster" || animalRec.Current_Status == "Ready for Release")
+											{
+												animalRec.Current_Status="In Holding";
+											}
+										}
+						)
+					}
+				}
+
+			}
+			W8 as "W8"
+			{
+				type =  form
+				form = Foster_Placement
+
+				record event = on add
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											fosterRec = Foster_Master[ID == input.Foster];
+										animalRec = Rescue_Report[ID == input.Animal];
+										if(fosterRec.Availability == "On Break")
+										{
+											alert "This foster carer is currently on break.";
+											cancel submit;
+										}
+										activeCount = Foster_Placement[Foster == input.Foster && Placement_Status == "Active"].count();
+										if(activeCount >= fosterRec.Max_Animals)
+										{
+											alert "This foster is already at capacity (" + fosterRec.Max_Animals + " animals).";
+											cancel submit;
+										}
+										if(!fosterRec.Species_Accepted.contains(animalRec.Species))
+										{
+											alert "This foster does not accept " + animalRec.Species + ".";
+											cancel submit;
+										}
+										if(input.Expected_End_Date != null && input.Expected_End_Date < input.Placement_Start_Date)
+										{
+											alert "Expected end date cannot be before the start date.";
+											cancel submit;
+										}
+						)
+					}
+				}
+
+			}
+			W9 as "W9"
+			{
+				type =  form
+				form = Foster_Placement
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Animal moves out of the shelter
+										animalRec = Rescue_Report[ID == input.Animal];
+										animalRec.Current_Status="With Foster";
+										thisapp.closeCageAssignments(input.Animal);
+										// Update the foster's availability
+										thisapp.refreshFosterAvailability(input.Foster);
+										// Store the foster's email for record-level permissions
+										fosterRec = Foster_Master[ID == input.Foster];
+										Foster_Email = fosterRec.Email;
+						)
+					}
+				}
+
+			}
+			W10 as "W10"
+			{
+				type =  form
+				form = Foster_Placement
+
+				record event = on edit
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											animalRec = Rescue_Report[ID == input.Animal];
+										if(input.Placement_Status == "Completed")
+										{
+											animalRec.Current_Status="Ready for Release";
+										}
+										else if(input.Placement_Status == "Returned Early")
+										{
+											// Animal needs a cage again; staff assign one via Holding Assignment
+											animalRec.Current_Status="In Holding";
+										}
+										thisapp.refreshFosterAvailability(input.Foster);
+										if(input.Animal_Condition_at_Check_in == "Concern")
+										{
+											sendmail
+											[
+												from :zoho.adminuserid
+												to :"vet@yourshelter.org"
+												subject :"Foster check-in concern: " + animalRec.Animal_ID
+												message :"The foster reported a concern at check-in. Please follow up."
+											]
+										}
+						)
+					}
+				}
+
+			}
+		}
+
+		schedule
+		{
+			Treatment_Reminders as "Treatment Reminders"
+			{
+				type =  schedule
+				start = "2026-10-30 08:00:00"
+				frequency = daily
+				time zone = "Asia/Kolkata"
+				on start
+				{
+					actions 
+					{
+					on load
+					(
+						dueList = Treatment_Plan_Log[Next_Treatment_Due != null && Next_Treatment_Due <= zoho.currentdate.addDay(1)];
+										msg = "";
+										for each  t in dueList
+										{
+											msg = msg + t.Animal.Animal_Name + " (" + t.Animal.Animal_ID + "): " + t.Treatment_Type + " due " + t.Next_Treatment_Due + "<br>";
+										}
+										if(dueList.count() > 0)
+										{
+											sendmail
+											[
+												from :zoho.adminuserid
+												to :"vet@yourshelter.org"
+												subject :"Treatments due: " + dueList.count() + " animal(s)"
+												message :msg
+											]
+										}
+					)
+					}
+				}
+			}
+			Capacity_Alert as "Capacity Alert"
+			{
+				type =  schedule
+				start = "2026-10-30 09:00:00"
+				frequency = daily
+				time zone = "Asia/Kolkata"
+				on start
+				{
+					actions 
+					{
+					on load
+					(
+						activeCages = Cage_Enclosure_Master[Cage_Status != "Out of Service"];
+										totalCap = ifnull(activeCages.sum(Capacity),0);
+										totalOcc = ifnull(activeCages.sum(Current_Occupancy),0);
+										if(totalCap > 0)
+										{
+											pct = (totalOcc * 100) / totalCap;
+											if(pct >= 90)
+											{
+												sendmail
+												[
+													from :zoho.adminuserid
+													to :"admin@yourshelter.org"
+													subject :"Shelter near capacity: " + pct.round(0) + "% full"
+													message :totalOcc + " of " + totalCap + " spaces are occupied. Consider fostering or transfers."
+												]
+											}
+										}
+					)
+					}
+				}
+			}
+		}
+
+
+
+
+	}
+	share_settings
+	{
+			"Caretaker"
+			{
+				name = "Caretaker"
+				type = Users_Permissions
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Caretaker Profile\n"
+				ModulePermissions
+				{
+					Rescue_Report
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+					}
+					Treatment_Plan_Log
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Treatment_Plan_Log_Report={"View"}
+						}
+					}
+					Foster_Placement
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+					}
+					Cage_Enclosure_Master
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+					}
+					Holding_Cage_Assignment
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Holding_Cage_Assignment_Report={"View","Edit"}
+						}
+					}
+					Injury_Record
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Injury_Records={"View"}
+						}
+					}
+					Foster_Master
+					{
+						allFieldsVisible= true 
+					}
+				}
+			}
+			"Foster"
+			{
+				name = "Foster"
+				type = Users_Permissions
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Foster Profile\n"
+				ModulePermissions
+				{
+					Rescue_Report
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Rescue_Reports={"View"}
+						}
+					}
+					Treatment_Plan_Log
+					{
+						enabled= Create,Tab,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Treatment_Plan_Log_Report={"View"}
+						}
+					}
+					Foster_Placement
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Foster_Placements={"View","Edit"}
+						}
+					}
+					Cage_Enclosure_Master
+					{
+						allFieldsVisible= true 
+					}
+					Holding_Cage_Assignment
+					{
+						allFieldsVisible= true 
+					}
+					Injury_Record
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Injury_Records={"View"}
+						}
+					}
+					Foster_Master
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Foster_Masters={"View"}
+						}
+					}
+				}
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"Vet"
+			{
+				name = "Vet"
+				type = Users_Permissions
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Vet Profile\n"
+				ModulePermissions
+				{
+					Rescue_Report
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Rescue_Reports={"View","Edit"}
+						}
+					}
+					Treatment_Plan_Log
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Treatment_Plan_Log_Report={"View","Edit"}
+						}
+					}
+					Foster_Placement
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Foster_Placements={"View"}
+						}
+					}
+					Cage_Enclosure_Master
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Cage_Enclosure_Master_Report={"View"}
+						}
+					}
+					Holding_Cage_Assignment
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Holding_Cage_Assignment_Report={"View"}
+						}
+					}
+					Injury_Record
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Injury_Records={"View","Edit"}
+						}
+					}
+					Foster_Master
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Foster_Masters={"View"}
+						}
+					}
+				}
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Developer Profile\n"
+			}
+			"Admin"
+			{
+				name = "Admin"
+				type = Users_Permissions
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Admin Profile\n"
+				ModulePermissions
+				{
+					Rescue_Report
+					{
+						enabled= Create,Tab,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Rescue_Reports={"View","Edit","Delete"}
+						}
+					}
+					Treatment_Plan_Log
+					{
+						enabled= Create,Tab,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Treatment_Plan_Log_Report={"View","Edit","Delete"}
+						}
+					}
+					Foster_Placement
+					{
+						enabled= Create,Tab,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Foster_Placements={"View","Edit","Delete"}
+						}
+					}
+					Cage_Enclosure_Master
+					{
+						enabled= Create,Tab,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Cage_Enclosure_Master_Report={"View","Edit","Delete"}
+						}
+					}
+					Holding_Cage_Assignment
+					{
+						enabled= Create,Tab,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Holding_Cage_Assignment_Report={"View","Edit","Delete"}
+						}
+					}
+					Injury_Record
+					{
+						enabled= Create,Tab,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Injury_Records={"View","Edit","Delete"}
+						}
+					}
+					Foster_Master
+					{
+						enabled= Create,Tab,create_new_report 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Foster_Masters={"View","Edit","Delete"}
+						}
+					}
+				}
+			}
+			"Coordinator"
+			{
+				name = "Coordinator"
+				type = Users_Permissions
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Coordinator Profile\n"
+				ModulePermissions
+				{
+					Rescue_Report
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Rescue_Reports={"View","Edit"}
+						}
+					}
+					Treatment_Plan_Log
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Treatment_Plan_Log_Report={"View"}
+						}
+					}
+					Foster_Placement
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Foster_Placements={"View","Edit"}
+						}
+					}
+					Cage_Enclosure_Master
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Cage_Enclosure_Master_Report={"View"}
+						}
+					}
+					Holding_Cage_Assignment
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Holding_Cage_Assignment_Report={"View","Edit"}
+						}
+					}
+					Injury_Record
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Injury_Records={"View"}
+						}
+					}
+					Foster_Master
+					{
+						enabled= Create,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							All_Foster_Masters={"View","Edit"}
+						}
+					}
+				}
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users."
+					"Shelter Admin"
+					{
+						description = "Full control, cage setup, user management, approves releases, sees every report and dashboard"
+						"Veterinarian"
+						{
+							description = "Records injuries and treatment plans, handles critical and declining cases"
+						}
+						"Rescue Coordinator"
+						{
+							description = "Creates rescue reports, assigns cages, registers fosters and creates placements"
+						}
+						"Caretaker"
+						{
+							description = "Daily care, logs treatments given, assigns and moves animals between cages"
+						}
+						"Foster Carer"
+						{
+							description = "Sees and updates only their own fostered animals"
+						}
+					}
+				}
+			}
+			role Hierarchy = {Cage_Enclosure_Master,Foster_Master,Foster_Placement,Holding_Cage_Assignment,Injury_Record,Rescue_Report,Treatment_Plan_Log}
+	}
+
+	customize
+	{
+		icon
+		{
+			text = "PET"
+			background color = "theme"
+			foreground color = "#ffffff"
+		}
+	}
+
+	web
+	{
+		forms
+		{
+			form Cage_Enclosure_Master
+			{
+				label placement = left
+			}
+			form Foster_Master
+			{
+				label placement = left
+			}
+			form Foster_Placement
+			{
+				label placement = left
+			}
+			form Holding_Cage_Assignment
+			{
+				label placement = left
+			}
+			form Injury_Record
+			{
+				label placement = left
+			}
+			form Rescue_Report
+			{
+				label placement = left
+			}
+			form Treatment_Plan_Log
+			{
+				label placement = left
+			}
+		}
+		reports
+		{
+			report Cage_Enclosure_Master_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Cage_ID as "Cage ID"
+								Cage_Type as "Cage Type"
+								Block_Location as "Block/Location"
+								Capacity
+								Current_Occupancy as "Current Occupancy"
+								Cage_Status as "Cage Status"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Cage_ID as "Cage ID"
+								Cage_Type as "Cage Type"
+								Block_Location as "Block/Location"
+								Capacity
+								Current_Occupancy as "Current Occupancy"
+								Cage_Status as "Cage Status"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Rescue_Reports
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Animal_ID as "Animal ID"
+								Animal_Name as "Animal Name"
+								Species
+								Breed_Description as "Breed/Description"
+								Approx_Age as "Approx. Age"
+								Sex
+								Photo
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Animal_ID as "Animal ID"
+								Animal_Name as "Animal Name"
+								Species
+								Breed_Description as "Breed/Description"
+								Approx_Age as "Approx. Age"
+								Sex
+								Photo
+								Rescue_Date_Time as "Rescue Date & Time"
+								Rescue_Location as "Rescue Location"
+								Reported_By as "Reported By"
+								Reporter_Contact as "Reporter Contact"
+								Rescued_By as "Rescued By"
+								Rescue_Type as "Rescue Type"
+								Condition_on_Arrival as "Condition on Arrival"
+								Microchipped
+								Current_Status as "Current Status"
+								Cage_Enclosure_Master as "Cage/Enclosure Master"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Injury_Records
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Animal
+								Injury_Date_Noted as "Injury Date Noted"
+								Injury_Type as "Injury Type"
+								Body_Part_Affected as "Body Part Affected"
+								Severity
+								Description
+								Injury_Photo as "Injury Photo"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Animal
+								Injury_Date_Noted as "Injury Date Noted"
+								Injury_Type as "Injury Type"
+								Body_Part_Affected as "Body Part Affected"
+								Severity
+								Description
+								Injury_Photo as "Injury Photo"
+								Assessed_by as "Assessed by"
+								Recovery_Status as "Recovery Status"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Treatment_Plan_Log_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Animal
+								Injury_Record as "Injury Record"
+								Treatment_Date as "Treatment Date"
+								Treatment_Type as "Treatment Type"
+								Medication_Procedure as "Medication/Procedure"
+								Dosage
+								Administered_by as "Administered by"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Animal
+								Injury_Record as "Injury Record"
+								Treatment_Date as "Treatment Date"
+								Treatment_Type as "Treatment Type"
+								Medication_Procedure as "Medication/Procedure"
+								Dosage
+								Administered_by as "Administered by"
+								Vet_Notes as "Vet Notes"
+								Weight
+								Next_Treatment_Due as "Next Treatment Due"
+								Progress
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Foster_Masters
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Foster_ID as "Foster ID"
+								Foster_Name as "Foster Name"
+								Email
+								Address
+								Species_Accepted as "Species Accepted"
+								Max_Animals as "Max Animals"
+								Experience_Level as "Experience Level"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Foster_ID as "Foster ID"
+								Foster_Name as "Foster Name"
+								Email
+								Address
+								Species_Accepted as "Species Accepted"
+								Max_Animals as "Max Animals"
+								Experience_Level as "Experience Level"
+								Availability
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Foster_Placements
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Animal
+								Foster
+								Placement_Start_Date as "Placement Start Date"
+								Expected_End_Date as "Expected End Date"
+								Reason_for_Fostering as "Reason for Fostering"
+								Care_Instructions as "Care Instructions"
+								Check_in_Date as "Check-in Date"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Animal
+								Foster
+								Placement_Start_Date as "Placement Start Date"
+								Expected_End_Date as "Expected End Date"
+								Reason_for_Fostering as "Reason for Fostering"
+								Care_Instructions as "Care Instructions"
+								Check_in_Date as "Check-in Date"
+								Animal_Condition_at_Check_in as "Animal Condition at Check-in"
+								Placement_Status as "Placement Status"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Holding_Cage_Assignment_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Animal
+								Cage
+								Assigned_Date as "Assigned Date"
+								Holding_Reason as "Holding Reason"
+								Expected_Move_Date as "Expected Move Date"
+								Moved_Out_Date as "Moved Out Date"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Animal
+								Cage
+								Assigned_Date as "Assigned Date"
+								Holding_Reason as "Holding Reason"
+								Expected_Move_Date as "Expected Move Date"
+								Moved_Out_Date as "Moved Out Date"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Foster_Placement_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Placement_Status as "Placement Status"
+								Foster
+								Animal
+								Placement_Start_Date as "Placement Start Date"
+								Expected_End_Date as "Expected End Date"
+								Reason_for_Fostering as "Reason for Fostering"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						placement_details
+						(
+		     				title = "Placement Details"
+							fields
+							(
+								Placement_Status as "Placement Status"
+								Foster
+								Animal
+								Placement_Start_Date as "Placement Start Date"
+								Expected_End_Date as "Expected End Date"
+								Reason_for_Fostering as "Reason for Fostering"
+								Care_Instructions as "Care Instructions"
+								Animal_Condition_at_Check_in as "Animal Condition at Check-in"
+								Check_in_Date as "Check-in Date"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Holding_Analysis
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								Animal
+								Cage
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Animal
+								Cage
+								Assigned_Date as "Assigned Date"
+								Holding_Reason as "Holding Reason"
+								Expected_Move_Date as "Expected Move Date"
+								Moved_Out_Date as "Moved Out Date"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+		}
+		menu
+		{
+			space Space
+			{
+				displayname = "Space"
+				icon = "objects-spaceship"
+
+				section Cage_Enclosure_Master
+				{
+					displayname = "Cage/Enclosure Master"
+					icon = "sport-crown"
+					form  Cage_Enclosure_Master
+					{
+						icon = "sport-crown"
+					}
+					report Cage_Enclosure_Master_Report
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section ZC_App_Preferences
+				{
+					displayname = "App Preferences"
+					icon = "design-app"
+					systemcomponent
+					{
+						type = localization
+						displayname = "Language Selection"
+						icon = "education-language"
+					}
+					systemcomponent
+					{
+						type = connection
+						displayname = "Integrations"
+						icon = "tech-2-connection"
+					}
+				}
+				section ZC_Approvals
+				{
+					displayname = "Approvals"
+					icon = "ui-2-hourglass"
+					systemcomponent
+					{
+						type = approval
+						approval status = pending
+						displayname = "Pending Tasks"
+						icon = "ui-2-hourglass"
+					}
+					systemcomponent
+					{
+						type = approval
+						approval status = completed
+						displayname = "Completed Tasks"
+						icon = "design-todo"
+					}
+				}
+				section SharedAnalytics_Section
+				{
+					type = shared_user_report_section
+					displayname = "Reports"
+					icon = "business-chart-bar-33"
+				}
+				section Rescue_Reports
+				{
+					displayname = "Rescue Reports"
+					icon = "objects-support-17"
+					form  Rescue_Report
+					{
+						icon = "objects-support-17"
+					}
+					report All_Rescue_Reports
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Injury_Records
+				{
+					displayname = "Injury Records"
+					icon = "health-notebook"
+					form  Injury_Record
+					{
+						icon = "users-2-voice-record"
+					}
+					report All_Injury_Records
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Treatment_Plan_Log
+				{
+					displayname = "Treatment Plan/Log"
+					icon = "food-candy"
+					form  Treatment_Plan_Log
+					{
+						icon = "food-candy"
+					}
+					report Treatment_Plan_Log_Report
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Foster_Masters
+				{
+					displayname = "Foster Masters"
+					icon = "education-book-open"
+					form  Foster_Master
+					{
+						icon = "sport-crown"
+					}
+					report All_Foster_Masters
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Foster_Placements
+				{
+					displayname = "Foster Placements"
+					icon = "travel-spa"
+					form  Foster_Placement
+					{
+						icon = "education-pencil-47"
+					}
+					report All_Foster_Placements
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Holding_Cage_Assignment
+				{
+					displayname = "Holding & Cage Assignment"
+					icon = "media-1-image-location"
+					form  Holding_Cage_Assignment
+					{
+						icon = "media-1-image-location"
+					}
+					report Holding_Cage_Assignment_Report
+					{
+						icon = "tech-desktop"
+					}
+					report Holding_Analysis
+					{
+						icon = "media-1-image-location"
+					}
+				}
+			}
+			space Foster_Placement_Space
+			{
+				displayname = "Foster Placement"
+				icon = "users-2-child"
+
+				section Foster_Placement_Section
+				{
+					displayname = "Foster Placement"
+					icon = "users-2-child"
+					page Foster_Placement_Dashboard
+					{
+						icon = "ui-1-dashboard-half"
+					}
+					report Foster_Placement_Report
+					{
+						icon = "shopping-receipt-list-43"
+					}
+				}
+			}
+			preference
+			{
+				icon
+				{
+					style = outline
+				}
+			}
+		}
+		customize
+		{
+			font = "lato"
+			color options
+			{
+				color = "11"
+			}
+			logo
+			{
+				preference = "app_icon"
+				placement = "left"
+			}
+		}
+	}
+	phone
+	{
+		customize
+		{
+			layout = twocolumn
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = chryslerpurple
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	tablet
+	{
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = lightred
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	translation
+{
+{"Language_Settings":{"LANGAGUE_WITH_LOGIN":"browser"}}
+}
+}
